@@ -13,10 +13,23 @@ spec:
         app: backend
     spec:
       containers:
-      - name: backend
-        image: abhi2305/backend:latest
-        ports:
-        - containerPort: 8080
+        - name: backend
+          image: abhi2305/backend-app:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: DB_HOST
+              value: "postgres-service"
+            - name: DB_USER
+              value: "postgres"
+            - name: DB_PASSWORD
+              value: "postgres123"
+            - name: DB_NAME
+              value: "employees"
+            - name: DB_PORT
+              value: "5432"
+            - name: ALLOWED_ORIGINS
+              value: "http://43.205.142.66:30001"   # Replace this with your frontend URL
 ---
 apiVersion: v1
 kind: Service
@@ -25,8 +38,8 @@ metadata:
 spec:
   selector:
     app: backend
-  ports:
-  - port: 8080
-    targetPort: 8080
-    nodePort: 30080
   type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080
