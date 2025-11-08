@@ -3,14 +3,14 @@ pipeline {
 
     environment {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')   // Jenkins secret ID
-        BACKEND_IMAGE = "your-dockerhub-username/backend-app"
-        FRONTEND_IMAGE = "your-dockerhub-username/frontend-app"
+        BACKEND_IMAGE = "abhi2305/backend"
+        FRONTEND_IMAGE = "abhi2305/frontend"
     }
 
     stages {
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/TechVerito-Software-Solutions-LLP/devops-fullstack-app.git'
+                git 'https://github.com/ajinkya517-web/devops-fullstack-app.git'
             }
         }
 
