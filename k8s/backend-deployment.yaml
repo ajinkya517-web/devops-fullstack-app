@@ -29,7 +29,7 @@ spec:
             - name: DB_PORT
               value: "5432"
             - name: ALLOWED_ORIGINS
-              value: "http://43.205.142.66:30001"   # Replace this with your frontend URL
+              value: "http://3.108.56.193:30001"   # Replace this with your frontend URL
 ---
 apiVersion: v1
 kind: Service
